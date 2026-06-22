@@ -1,65 +1,188 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import ContactForm from "./components/ContactForm";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="min-h-screen bg-zinc-950 text-zinc-50 font-sans selection:bg-teal-500 selection:text-zinc-950">
+      {/* HEADER / HERO */}
+      <header className="max-w-4xl mx-auto px-6 pt-24 pb-16 md:pt-36 md:pb-24">
+        <span className="text-teal-400 font-mono text-sm tracking-wider uppercase font-semibold">
+          reciproque.eu
+        </span>
+        <h1 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight text-zinc-100 max-w-3xl">
+          We build real-time web applications & custom automated data pipelines.
+        </h1>
+        <p className="mt-6 text-lg md:text-xl text-zinc-400 max-w-2xl leading-relaxed">
+          Production-grade software built for speed, scale, and high
+          reliability. No fluff, no over-engineering—just code that drives your
+          business logic.
+        </p>
+        <div className="mt-10">
+          <a href="#contact">
+            <Button
+              size="lg"
+              className="bg-teal-400 text-zinc-950 hover:bg-teal-300 font-semibold shadow-lg shadow-teal-500/10"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              Let's build something
+            </Button>
+          </a>
+        </div>
+      </header>
+
+      {/* CORE WORK / REFERENCES */}
+      <main className="max-w-4xl mx-auto px-6 py-12 space-y-24">
+        {/* Reference A: Breeze */}
+        <section className="border-t border-zinc-800/60 pt-12 grid md:grid-cols-2 gap-8 items-start">
+          <div>
+            <div className="flex items-center gap-2">
+              <h2 className="text-2xl font-bold tracking-tight text-zinc-100">
+                Breeze
+              </h2>
+              <span className="text-xs bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded font-mono">
+                App Reference
+              </span>
+            </div>
+            <p className="text-zinc-400 text-sm mt-1">
+              Online assessment app owned by Tomorrow Never Knows, used by{" "}
+              <strong className="text-zinc-300 font-medium">
+                Volvo Benelux
+              </strong>
+              .
+            </p>
+            <p className="mt-4 text-zinc-300 text-sm leading-relaxed">
+              A high-stakes, zero-fault practical assessment platform.
+              Engineered to manage complex state and synchronized data streaming
+              under demanding corporate infrastructure rules.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2 text-xs font-mono text-teal-400 bg-zinc-900/50 p-3 rounded-lg border border-zinc-800/40">
+              <span>TypeScript</span> • <span>Next.js</span> •{" "}
+              <span>GraphQL (Apollo)</span> • <span>Ably</span> •{" "}
+              <span>Sanity</span> • <span>GCR</span>
+            </div>
+          </div>
+          <div className="bg-zinc-900 aspect-video rounded-xl border border-zinc-800/80 flex flex-col items-center justify-center p-4 text-center overflow-hidden">
+            {/* When you record your video, replace this div with your iframe/video player */}
+            <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+              [ 60s App Walkthrough Video ]
+            </span>
+            <p className="text-xs text-zinc-600 mt-2 max-w-xs">
+              Drop your async video embed here to instantly prove code execution
+              capabilities.
+            </p>
+          </div>
+        </section>
+
+        {/* Reference B: ArtNowDatabase */}
+        <section className="border-t border-zinc-800/60 pt-12 grid md:grid-cols-2 gap-8 items-start">
+          <div>
+            <div className="flex items-center gap-2">
+              <h2 className="text-2xl font-bold tracking-tight text-zinc-100">
+                ArtNowDatabase
+              </h2>
+              <span className="text-xs bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded font-mono">
+                Data Pipeline Reference
+              </span>
+            </div>
+            <p className="text-zinc-400 text-sm mt-1">
+              Automated intelligence platform mapping fine art exhibitions
+              across Europe.
+            </p>
+            <p className="mt-4 text-zinc-300 text-sm leading-relaxed">
+              An autonomous data harvesting ecosystem utilizing a proprietary
+              scraping engine paired with a localized LLM. Processes, refines,
+              and maps unstructured web data into structured global feeds
+              automatically.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2 text-xs font-mono text-teal-400 bg-zinc-900/50 p-3 rounded-lg border border-zinc-800/40">
+              <span>Python</span> •<span>AI Scraping Engine (Crawl4AI)</span> •
+              <span>High-Speed Automation (Asyncio)</span> •
+              <span>Local LLMs (HuggingFace)</span> •
+              <span>Smart Data Mapping & Validation</span>
+            </div>
+          </div>
+          <div className="bg-zinc-900 aspect-video rounded-xl border border-zinc-800/80 flex flex-col items-center justify-center p-4 text-center">
+            <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+              [ Live Platform Dashboard / Map ]
+            </span>
+            <p className="text-xs text-zinc-600 mt-2 max-w-xs">
+              A visual capture or mini-frame showing the scale of the live map
+              database.
+            </p>
+          </div>
+        </section>
+
+        {/* THE MANIFESTO / ETHOS */}
+        <section className="border-t border-zinc-800/60 pt-12 max-w-2xl">
+          <h3 className="text-lg font-semibold text-zinc-200">
+            How we operate
+          </h3>
+          <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
+            We do not over-refine software for hypothetical problems. Building
+            for imaginary scale is a waste of your capital and our energy. We
+            deploy working infrastructure rapidly, and refine dynamically based
+            on real-world edge cases.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        </section>
+
+        {/* CONTACT FORM */}
+        <section
+          id="contact"
+          className="border-t border-zinc-800/60 pt-12 max-w-md scroll-mt-12"
+        >
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-100">
+            Let's solve a bottleneck.
+          </h2>
+          <p className="text-zinc-400 text-sm mt-1">
+            Have an application to build or a complex data source to pipe? Reach
+            out.
+          </p>
+          <ContactForm />
+
+          {/* REPLACE ACTION URL WITH YOUR FORMSPREE/FORMSPARK ID LATER */}
+          {/* <form
+            action="https://formspree.io/f/your_endpoint_id"
+            method="POST"
+            className="mt-8 space-y-5"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <div>
+              <label className="text-xs uppercase font-mono tracking-wider text-zinc-400 block mb-1.5">
+                Email Address
+              </label>
+              <Input
+                type="email"
+                name="email"
+                required
+                placeholder="you@company.com"
+                className="bg-zinc-900/50 border-zinc-800 text-zinc-100 focus:border-teal-500 transition-colors"
+              />
+            </div>
+            <div>
+              <label className="text-xs uppercase font-mono tracking-wider text-zinc-400 block mb-1.5">
+                What are we building or scraping?
+              </label>
+              <Textarea
+                name="message"
+                required
+                placeholder="Tell us briefly about your engineering target..."
+                className="bg-zinc-900/50 border-zinc-800 text-zinc-100 focus:border-teal-500 transition-colors min-h-[120px]"
+              />
+            </div>
+            <Button
+              type="submit"
+              className="w-full bg-zinc-100 text-zinc-950 hover:bg-zinc-200 font-semibold transition-colors"
+            >
+              Submit Project Query
+            </Button>
+          </form> */}
+        </section>
       </main>
+
+      <footer className="max-w-4xl mx-auto px-6 border-t border-zinc-900 py-12 text-xs text-zinc-600 font-mono flex justify-between items-center">
+        <span>© {new Date().getFullYear()} Reciproque.</span>
+        <span className="text-zinc-700">Built fast. Built right.</span>
+      </footer>
     </div>
   );
 }
