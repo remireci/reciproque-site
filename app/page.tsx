@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import ContactForm from "./components/ContactForm";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -192,6 +193,9 @@ export default function Home() {
 
       <footer className="max-w-4xl mx-auto px-6 border-t border-zinc-900 py-12 text-xs text-zinc-600 font-mono flex justify-between items-center">
         <span>© {new Date().getFullYear()} Reciproque.</span>
+        <span>
+          <Link href="./privacy"> Privacy</Link>
+        </span>
         <span className="text-zinc-700">Built fast. Built right.</span>
       </footer>
     </div>
