@@ -24,25 +24,34 @@ export async function sendNextUnsubscribeAcknowledgement(
   try {
     const host = process.env.SMTP_HOST;
     const user = process.env.SMTP_USER;
-    const pass = process.env.SMTP_PASS;
-    const from = process.env.SMTP_FROM_EMAIL;
-    const port = Number(process.env.SMTP_PORT ?? "587");
+    const pass = process.env.SMTP_PASSWORD;
+    const from = process.env.SMTP_FROM_EMAIL || "info@reciproque.eu";
+    const port = Number(process.env.SMTP_PORT || "465");
 
-    if (!host || !user || !pass || !from || ![465, 587].includes(port)) {
-      throw new Error("Unsubscribe SMTP not configured");
+    const missing = [
+      !host && "SMTP_HOST",
+      !user && "SMTP_USER",
+      !pass && "SMTP_PASSWORD",
+      !from && "SMTP_FROM_EMAIL",
+    ].filter(Boolean);
+
+    if (missing.length > 0 || ![465, 587].includes(port)) {
+      throw new Error(
+        `Unsubscribe SMTP configuration invalid: ${
+          missing.join(", ") || `unsupported port ${port}`
+        }`,
+      );
     }
 
     const transport = nodemailer.createTransport({
       host,
       port,
       secure: port === 465,
-      requireTLS: port === 587,
-      connectionTimeout: 10000,
-      greetingTimeout: 10000,
-      socketTimeout: 15000,
-      auth: { user, pass },
+      auth: {
+        user,
+        pass,
+      },
     });
-
     const result = await transport.sendMail({
       from,
       to: job.recipient,
