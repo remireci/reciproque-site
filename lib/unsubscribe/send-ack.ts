@@ -22,11 +22,11 @@ export async function sendNextUnsubscribeAcknowledgement(
 
   let delivered = false;
   try {
-    const host = process.env.UNSUBSCRIBE_SMTP_HOST;
-    const user = process.env.UNSUBSCRIBE_SMTP_USER;
-    const pass = process.env.UNSUBSCRIBE_SMTP_PASS;
-    const from = process.env.UNSUBSCRIBE_SMTP_FROM;
-    const port = Number(process.env.UNSUBSCRIBE_SMTP_PORT ?? "587");
+    const host = process.env.SMTP_HOST;
+    const user = process.env.SMTP_USER;
+    const pass = process.env.SMTP_PASS;
+    const from = process.env.SMTP_FROM;
+    const port = Number(process.env.SMTP_PORT ?? "587");
 
     if (!host || !user || !pass || !from || ![465, 587].includes(port)) {
       throw new Error("Unsubscribe SMTP not configured");
@@ -77,11 +77,11 @@ export async function sendNextUnsubscribeAcknowledgement(
       command: smtpError?.command ?? null,
 
       configuration: {
-        host: !!process.env.UNSUBSCRIBE_SMTP_HOST,
-        port: !!process.env.UNSUBSCRIBE_SMTP_PORT,
-        user: !!process.env.UNSUBSCRIBE_SMTP_USER,
-        password: !!process.env.UNSUBSCRIBE_SMTP_PASS,
-        from: !!process.env.UNSUBSCRIBE_SMTP_FROM,
+        host: !!process.env.SMTP_HOST,
+        port: !!process.env.SMTP_PORT,
+        user: !!process.env.SMTP_USER,
+        password: !!process.env.SMTP_PASS,
+        from: !!process.env.SMTP_FROM,
       },
     });
 
