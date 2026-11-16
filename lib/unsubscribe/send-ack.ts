@@ -58,30 +58,38 @@ export async function sendNextUnsubscribeAcknowledgement(
       ].join("\n"),
     });
 
-    // SMTP acceptance is not guaranteed final inbox delivery.
+    // SMTP acceptance does not guarantee inbox delivery.
     delivered = result.accepted.some((email) => {
       const address = typeof email === "string" ? email : email.address;
 
       return address.toLowerCase() === job.recipient.toLowerCase();
     });
+
+    console.info("[UNSUBSCRIBE SMTP RESULT]", {
+      acceptedCount: result.accepted.length,
+      rejectedCount: result.rejected?.length ?? 0,
+      pendingCount: result.pending?.length ?? 0,
+      recipientAccepted: delivered,
+    });
   } catch (error) {
     const smtpError = error as {
+      name?: string;
       code?: string;
       responseCode?: number;
       command?: string;
     };
 
     console.error("[UNSUBSCRIBE SMTP ERROR]", {
+      name: smtpError?.name ?? "unknown",
       code: smtpError?.code ?? "unknown",
       responseCode: smtpError?.responseCode ?? null,
       command: smtpError?.command ?? null,
-
       configuration: {
         host: !!process.env.SMTP_HOST,
         port: !!process.env.SMTP_PORT,
         user: !!process.env.SMTP_USER,
-        password: !!process.env.SMTP_PASS,
-        from: !!process.env.SMTP_FROM,
+        password: !!process.env.SMTP_PASSWORD,
+        from: !!process.env.SMTP_FROM_EMAIL,
       },
     });
 
