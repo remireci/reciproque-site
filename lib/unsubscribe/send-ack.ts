@@ -64,8 +64,27 @@ export async function sendNextUnsubscribeAcknowledgement(
 
       return address.toLowerCase() === job.recipient.toLowerCase();
     });
-  } catch {
-    // No personal email address or SMTP credentials are logged.
+  } catch (error) {
+    const smtpError = error as {
+      code?: string;
+      responseCode?: number;
+      command?: string;
+    };
+
+    console.error("[UNSUBSCRIBE SMTP ERROR]", {
+      code: smtpError?.code ?? "unknown",
+      responseCode: smtpError?.responseCode ?? null,
+      command: smtpError?.command ?? null,
+
+      configuration: {
+        host: !!process.env.UNSUBSCRIBE_SMTP_HOST,
+        port: !!process.env.UNSUBSCRIBE_SMTP_PORT,
+        user: !!process.env.UNSUBSCRIBE_SMTP_USER,
+        password: !!process.env.UNSUBSCRIBE_SMTP_PASS,
+        from: !!process.env.UNSUBSCRIBE_SMTP_FROM,
+      },
+    });
+
     delivered = false;
   }
 
