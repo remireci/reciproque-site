@@ -72,25 +72,13 @@ export async function sendNextUnsubscribeAcknowledgement(
       recipientAccepted: delivered,
     });
   } catch (error) {
-    const smtpError = error as {
-      name?: string;
-      code?: string;
-      responseCode?: number;
-      command?: string;
-    };
-
     console.error("[UNSUBSCRIBE SMTP ERROR]", {
-      name: smtpError?.name ?? "unknown",
-      code: smtpError?.code ?? "unknown",
-      responseCode: smtpError?.responseCode ?? null,
-      command: smtpError?.command ?? null,
-      configuration: {
-        host: !!process.env.SMTP_HOST,
-        port: !!process.env.SMTP_PORT,
-        user: !!process.env.SMTP_USER,
-        password: !!process.env.SMTP_PASSWORD,
-        from: !!process.env.SMTP_FROM_EMAIL,
-      },
+      message: error instanceof Error ? error.message : "Unknown error",
+      code:
+        error && typeof error === "object" && "code" in error
+          ? error.code
+          : "unknown",
+      port: Number(process.env.SMTP_PORT || "465"),
     });
 
     delivered = false;
