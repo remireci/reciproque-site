@@ -25,7 +25,7 @@ export async function sendNextUnsubscribeAcknowledgement(
     const host = process.env.SMTP_HOST;
     const user = process.env.SMTP_USER;
     const pass = process.env.SMTP_PASS;
-    const from = process.env.SMTP_FROM;
+    const from = process.env.SMTP_FROM_EMAIL;
     const port = Number(process.env.SMTP_PORT ?? "587");
 
     if (!host || !user || !pass || !from || ![465, 587].includes(port)) {
