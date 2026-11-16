@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/unsubscribe-ack",
+      "schedule": "0 8 * * *"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { neon } from "@neondatabase/serverless";
 import { NextResponse } from "next/server";
+import { sendNextUnsubscribeAcknowledgement } from "@/lib/unsubscribe/send-ack";
 
 export const runtime = "nodejs";
 
@@ -43,10 +44,29 @@ export async function POST(request: Request, { params }: Context) {
     // Only the permitted PostgreSQL function
     // can be called by this database role.
     const result = await sql`
-      SELECT public.apply_unsubscribe_token(
-        ${tokenHash}
-      ) AS accepted
-    `;
+  SELECT public.apply_unsubscribe_token(
+    ${tokenHash}
+  ) AS accepted
+`;
+
+    // First verify that the unsubscribe was accepted.
+    if (result[0]?.accepted !== true) {
+      return redirectTo(request, "/unsubscribe/invalid");
+    }
+
+    // The unsubscribe is now recorded in Neon.
+    // Attempt to send its acknowledgment email.
+    try {
+      const outcome = await sendNextUnsubscribeAcknowledgement(tokenHash);
+
+      if (outcome === "failed") {
+        console.warn("Unsubscribe acknowledgment queued for retry");
+      }
+    } catch {
+      // Never undo a successful unsubscribe because
+      // email delivery failed. The cron job can retry.
+      console.warn("Unsubscribe acknowledgment could not be processed");
+    }
 
     if (result[0]?.accepted !== true) {
       return redirectTo(request, "/unsubscribe/invalid");
