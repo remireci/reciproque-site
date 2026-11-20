@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
-import ContactForm from "../components/ContactForm";
+import ContactForm from "../components/ContactForm-bilingual";
+import SoftwareLanguageSwitch from "../components/SoftwareLanguageSwitch";
 
 export const metadata: Metadata = {
   title: "Custom Software, Automation & Data Protection | Reciproque",
@@ -10,6 +11,11 @@ export const metadata: Metadata = {
     "Custom business applications, workflow automation, system integration and privacy-conscious software development. Independent software engineering by Reciproque.",
   alternates: {
     canonical: "/software-development",
+    languages: {
+      en: "/software-development",
+      fr: "/fr/software-development",
+      "x-default": "/software-development",
+    },
   },
   openGraph: {
     title: "Software & Automation | Reciproque",
@@ -96,6 +102,7 @@ export default function SoftwareDevelopmentPage() {
     >
       {/* NAVIGATION */}
       <SiteHeader current="software" theme="dark" language="en" />
+      <SoftwareLanguageSwitch locale="en" />
       <main>
         {/* HERO */}
         <section className="max-w-6xl mx-auto px-6 pt-14 pb-16 md:pt-20 md:pb-20">
@@ -484,7 +491,7 @@ export default function SoftwareDevelopmentPage() {
                 have a technical specification.
               </p>
 
-              <ContactForm variant="software" />
+              <ContactForm variant="software" language="en" />
             </div>
           </div>
         </section>
