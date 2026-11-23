@@ -4,12 +4,14 @@ import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 import ContactForm from "../../components/ContactForm-bilingual";
 import SoftwareLanguageSwitch from "../../components/SoftwareLanguageSwitch";
+import ProjectMedia from "../../components/ProjectMedia";
+import { projectMedia } from "../../components/projectMediaConfig";
 
 export const metadata: Metadata = {
   title:
     "Logiciels sur mesure, automatisation et protection des données | Reciproque",
   description:
-    "Applications professionnelles sur mesure, automatisation, intégration de systèmes et protection des données. Développement de logiciels par Reciproque.",
+    "Gagnez du temps avec des logiciels sur mesure, des automatisations ciblées et des sites et applications web adaptés à votre activité.",
   alternates: {
     canonical: "/fr/software-development",
     languages: {
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Logiciels et automatisation | Reciproque",
     description:
-      "Des logiciels adaptés à votre activité : applications sur mesure, automatisation, intégrations et meilleure protection des données.",
+      "Des améliorations concrètes : automatisation, intégration de vos outils existants, applications et sites web adaptés à votre activité.",
     url: "/fr/software-development",
     siteName: "Reciproque",
     locale: "fr_BE",
@@ -55,7 +57,7 @@ const solutions = [
     number: "01",
     title: "Applications sur mesure",
     description:
-      "Lorsque les logiciels existants ne correspondent pas à vos méthodes de travail, nous développons des outils adaptés à votre organisation, de l’application interne à la plateforme web plus complexe.",
+      "Quand vos outils actuels ne suffisent pas, nous développons une fonctionnalité complémentaire ou une application adaptée à votre façon de travailler, sans complexité inutile.",
     keywords:
       "Applications professionnelles · Outils internes · Plateformes web",
   },
@@ -63,7 +65,7 @@ const solutions = [
     number: "02",
     title: "Automatisation et intégration",
     description:
-      "Réduisez les tâches répétitives, connectez vos logiciels et centralisez vos informations. Nous développons des automatisations et des solutions d’échange et de traitement de données.",
+      "Évitez les doubles encodages, simplifiez la préparation de documents et faites communiquer vos outils. Une automatisation ciblée peut déjà faire gagner un temps précieux.",
     keywords: "Automatisation · API · Traitement de données · Intégrations",
   },
   {
@@ -73,6 +75,14 @@ const solutions = [
       "Protéger des informations sensibles ne se limite pas à publier une politique de confidentialité. Nous examinons la manière dont vos applications stockent, traitent et rendent accessibles les données, puis mettons en place des protections techniques adaptées.",
     keywords:
       "Gestion des accès · Minimisation des données · Architecture sécurisée",
+  },
+  {
+    number: "04",
+    title: "Sites web et applications web",
+    description:
+      "Nous développons des sites et applications web utiles à votre activité : formulaires, espaces clients, gestion de données et connexions avec vos outils internes. Avec une attention portée à la fiabilité, à la sécurité, au référencement et à la protection des données.",
+    keywords:
+      "Sites professionnels · Formulaires · Espaces clients · Applications web",
   },
 ];
 
@@ -110,7 +120,7 @@ export default function SoftwareDevelopmentPage() {
         {/* HERO */}
         <section className="max-w-6xl mx-auto px-6 pt-14 pb-16 md:pt-20 md:pb-20">
           <p className="text-xs sm:text-sm uppercase tracking-widest font-semibold text-teal-400 mb-5">
-            Développement de logiciels · Automatisation · Protection des données
+            Logiciels sur mesure · Automatisation · Applications web
           </p>
 
           <h1 className="max-w-4xl text-4xl md:text-5xl font-bold tracking-tight leading-[1.12]">
@@ -118,15 +128,15 @@ export default function SoftwareDevelopmentPage() {
           </h1>
 
           <p className="mt-7 max-w-3xl text-lg md:text-xl text-zinc-300 leading-relaxed">
-            Des logiciels qui ne communiquent pas, des tâches répétitives, des
-            procédures compliquées ou des données sensibles difficiles à
-            protéger ?
+            Des tâches répétitives, des informations à recopier entre plusieurs
+            logiciels ou des outils qui compliquent votre travail ?
           </p>
 
           <p className="mt-4 max-w-3xl text-base text-zinc-400 leading-relaxed">
-            Reciproque développe et améliore des logiciels pour répondre à ces
-            problèmes : outils internes, applications sur mesure, automatisation
-            et protection des données.
+            Reciproque vous aide à gagner du temps en améliorant vos logiciels,
+            en automatisant des opérations et, lorsque c’est utile, en
+            développant des applications adaptées à votre activité. Il n’est pas
+            toujours nécessaire de repartir de zéro.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
@@ -134,7 +144,7 @@ export default function SoftwareDevelopmentPage() {
               href="#contact"
               className="inline-flex items-center justify-center rounded-lg bg-teal-400 px-6 py-3 text-sm font-semibold text-zinc-950 hover:bg-teal-300 transition-colors"
             >
-              Parlons de vos besoins
+              Parlons de votre problème
             </a>
 
             <a
@@ -178,7 +188,10 @@ export default function SoftwareDevelopmentPage() {
         </section>
 
         {/* SOLUTIONS */}
-        <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <section
+          id="services"
+          className="max-w-6xl mx-auto px-6 py-16 md:py-24 scroll-mt-8"
+        >
           <div className="mb-10">
             <p className="text-sm uppercase tracking-widest font-semibold text-teal-400 mb-3">
               Nos services
@@ -189,12 +202,13 @@ export default function SoftwareDevelopmentPage() {
             </h2>
 
             <p className="mt-4 max-w-2xl text-zinc-400 leading-relaxed">
-              Il faut parfois développer un nouvel outil. Dans d’autres cas,
-              améliorer vos logiciels existants suffit.
+              Une automatisation ciblée, une fonctionnalité supplémentaire ou
+              une meilleure connexion entre vos logiciels peut déjà faire la
+              différence. Un nouvel outil n’est pas toujours nécessaire.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
             {solutions.map((solution) => (
               <article
                 key={solution.number}
@@ -304,12 +318,12 @@ export default function SoftwareDevelopmentPage() {
           </p>
 
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-            Des projets concrets, des défis techniques réels.
+            Des applications qui répondent à des besoins concrets.
           </h2>
 
           <p className="mt-4 max-w-2xl text-zinc-400 leading-relaxed">
-            Deux exemples de développement logiciel, d’intégration et de
-            traitement automatisé des données.
+            Deux exemples de solutions qui facilitent le travail des
+            utilisateurs et automatisent des processus complexes.
           </p>
 
           <div className="mt-12 space-y-12">
@@ -332,31 +346,63 @@ export default function SoftwareDevelopmentPage() {
                   >
                     Tomorrow Never Knows
                   </a>
-                  , utilisée par Volvo Benelux.
+                  , notamment utilisée pour des évaluations pratiques de
+                  mécaniciens chez Volvo Cars Belgium.
                 </p>
 
                 <p className="mt-3 text-sm text-zinc-400 leading-relaxed">
-                  Elle permet aux évaluateurs de collaborer en temps réel,
-                  d’attribuer des scores et de générer des rapports.
+                  La plateforme accompagne l’observation des compétences en
+                  situation pratique : les évaluateurs collaborent en temps
+                  réel, enregistrent leurs appréciations et produisent des
+                  rapports à partir des résultats.
                 </p>
+                <div className="mt-7 rounded-xl border border-teal-900/70 bg-teal-950/30 p-5">
+                  <p className="text-sm font-semibold text-zinc-100">
+                    Vous souhaitez découvrir Breeze ?
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                    Breeze n&apos;est pas accessible publiquement. Contactez-moi
+                    pour discuter d&apos;une démonstration ou d&apos;un éventuel
+                    accès d&apos;essai pour votre organisation.
+                  </p>
+                  <a
+                    href="#contact"
+                    className="mt-3 inline-flex text-sm font-semibold text-teal-300 hover:text-teal-200"
+                  >
+                    Parlons de Breeze →
+                  </a>
+                </div>
               </div>
 
               <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-7">
                 <p className="text-xs uppercase tracking-widest text-zinc-500 font-semibold mb-5">
-                  Défis techniques
+                  Ce que permet la plateforme
                 </p>
 
                 <ul className="space-y-4 text-sm text-zinc-300">
-                  <li>Fonctionnement de l’application en temps réel</li>
-                  <li>Coordination de plusieurs utilisateurs et processus</li>
-                  <li>Traitement des données et génération de rapports</li>
-                  <li>Intégration de services externes</li>
+                  <li>Évaluer des compétences lors d’épreuves pratiques</li>
+                  <li>Faire collaborer plusieurs utilisateurs en temps réel</li>
+                  <li>Centraliser les scores et les observations</li>
+                  <li>Générer des rapports d’évaluation</li>
                 </ul>
 
                 <p className="mt-7 text-xs font-mono text-zinc-500 leading-relaxed">
                   TypeScript · Next.js · GraphQL · Ably · Sanity
                 </p>
               </div>
+              {(projectMedia.breeze.src ||
+                process.env.NODE_ENV !== "production") && (
+                <div className="md:col-span-2">
+                  <ProjectMedia
+                    kind={projectMedia.breeze.kind}
+                    src={projectMedia.breeze.src}
+                    poster={projectMedia.breeze.poster}
+                    alt="Démonstration de Breeze : évaluations pratiques, parcours évaluateur et participant"
+                    caption="Breeze : observer les compétences pratiques, coordonner les évaluations et produire des rapports."
+                    language="fr"
+                  />
+                </div>
+              )}
             </article>
 
             {/* ARTNOWDATABASE */}
@@ -369,16 +415,16 @@ export default function SoftwareDevelopmentPage() {
                 <h3 className="mt-3 text-2xl font-bold">ArtNowDatabase</h3>
 
                 <p className="mt-5 text-zinc-300 leading-relaxed">
-                  Une plateforme développée de manière indépendante pour
-                  collecter et organiser des informations sur les expositions
-                  d’art en Europe.
+                  Une plateforme indépendante qui rassemble des informations sur
+                  les expositions d’art en Europe et les présente sur une carte
+                  interactive.
                 </p>
 
                 <p className="mt-3 text-sm text-zinc-400 leading-relaxed">
-                  Extraction, validation et traitement automatisés
-                  d’informations provenant de centaines de sites web, grâce à
-                  des outils de collecte spécifiques et des modèles
-                  d’intelligence artificielle locaux.
+                  Derrière la carte, des outils automatisés collectent,
+                  extraient, contrôlent et organisent les informations provenant
+                  de centaines de sites web. Ils réduisent le travail manuel
+                  nécessaire à la recherche et à la mise à jour des expositions.
                 </p>
 
                 <a
@@ -393,26 +439,44 @@ export default function SoftwareDevelopmentPage() {
 
               <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-7">
                 <p className="text-xs uppercase tracking-widest text-zinc-500 font-semibold mb-5">
-                  Défis techniques
+                  Ce que permet la plateforme
                 </p>
 
                 <ul className="space-y-4 text-sm text-zinc-300">
-                  <li>Collecte automatisée auprès de sources variées</li>
-                  <li>Extraction et validation des données</li>
-                  <li>Traitement asynchrone de grands volumes de données</li>
-                  <li>Intégration de modèles de langage locaux</li>
+                  <li>
+                    Collecter des informations auprès de nombreuses sources
+                  </li>
+                  <li>Extraire et contrôler les données automatiquement</li>
+                  <li>Organiser les expositions par lieu et par date</li>
+                  <li>Présenter les résultats sur une carte interactive</li>
                 </ul>
 
                 <p className="mt-7 text-xs font-mono text-zinc-500 leading-relaxed">
                   Python · Crawl4AI · Local LLMs · MongoDB · Next.js
                 </p>
               </div>
+              {(projectMedia.artNow.src ||
+                process.env.NODE_ENV !== "production") && (
+                <div className="md:col-span-2">
+                  <ProjectMedia
+                    poster={projectMedia.artNow.poster}
+                    kind={projectMedia.artNow.kind}
+                    src={projectMedia.artNow.src}
+                    alt="Carte interactive des expositions européennes d’ArtNowDatabase"
+                    caption="ArtNowDatabase : une carte alimentée par des données collectées et organisées automatiquement."
+                    language="fr"
+                  />
+                </div>
+              )}
             </article>
           </div>
         </section>
 
         {/* WORKING APPROACH */}
-        <section className="border-y border-zinc-800 bg-zinc-900/40">
+        <section
+          id="approach"
+          className="border-y border-zinc-800 bg-zinc-900/40 scroll-mt-8"
+        >
           <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
             <p className="text-sm uppercase tracking-widest font-semibold text-teal-400 mb-3">
               Notre méthode
@@ -494,13 +558,14 @@ export default function SoftwareDevelopmentPage() {
               </p>
 
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Quel problème pouvons-nous vous aider à résoudre ?
+                Parlons de ce qui vous fait perdre du temps.
               </h2>
 
               <p className="mt-5 text-zinc-400 leading-relaxed">
-                Parlez-nous de vos difficultés, de vos outils actuels ou de
-                votre projet. Vous n’avez pas besoin de préparer un cahier des
-                charges technique.
+                Une tâche répétitive, un logiciel difficile à utiliser ou un
+                processus à simplifier ? Vous n’avez besoin ni d’un cahier des
+                charges ni d’un projet déjà défini. Nous pouvons commencer par
+                examiner ensemble ce qui mérite d’être amélioré.
               </p>
 
               <ContactForm variant="software" language="fr" />
@@ -509,7 +574,7 @@ export default function SoftwareDevelopmentPage() {
         </section>
       </main>
       {/* FOOTER */}
-      <SiteFooter theme="dark" language="fr" />{" "}
+      <SiteFooter theme="dark" language="fr" section="software" />{" "}
     </div>
   );
 }

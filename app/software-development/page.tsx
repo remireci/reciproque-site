@@ -4,11 +4,13 @@ import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import ContactForm from "../components/ContactForm-bilingual";
 import SoftwareLanguageSwitch from "../components/SoftwareLanguageSwitch";
+import ProjectMedia from "../components/ProjectMedia";
+import { projectMedia } from "../components/projectMediaConfig";
 
 export const metadata: Metadata = {
   title: "Custom Software, Automation & Data Protection | Reciproque",
   description:
-    "Custom business applications, workflow automation, system integration and privacy-conscious software development. Independent software engineering by Reciproque.",
+    "Independent software development for businesses worldwide: custom applications, web platforms, workflow automation, integrations and privacy-conscious engineering.",
   alternates: {
     canonical: "/software-development",
     languages: {
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Software & Automation | Reciproque",
     description:
-      "Software designed around your business needs. Custom applications, automation, integrations and better data protection.",
+      "From targeted improvements to complete web platforms: custom software, workflow automation and integrations built around real business needs.",
     url: "/software-development",
     siteName: "Reciproque",
     locale: "en_GB",
@@ -30,7 +32,7 @@ export const metadata: Metadata = {
         url: "https://reciproque.eu/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Reciproque — Assistance informatique, réseaux et logiciels",
+        alt: "Reciproque — Custom software, automation and web applications",
       },
     ],
   },
@@ -54,14 +56,14 @@ const solutions = [
     number: "01",
     title: "Custom applications",
     description:
-      "When existing products don't match your processes, we build tools around the way your organisation actually works. From internal applications to more complex web platforms.",
+      "When off-the-shelf tools fall short, we build software around your processes: a missing feature, a practical internal tool or a complete web platform.",
     keywords: "Business applications · Internal tools · Web platforms",
   },
   {
     number: "02",
     title: "Automation & integration",
     description:
-      "Reduce repetitive work, connect existing systems and bring information together. We develop automated workflows, data integrations and processing pipelines.",
+      "Reduce repetitive work, connect systems and make information flow reliably. A focused automation or integration can solve a problem without replacing the tools you already use.",
     keywords: "Automation · APIs · Data pipelines · Integrations",
   },
   {
@@ -70,6 +72,13 @@ const solutions = [
     description:
       "Sensitive information deserves more than a privacy policy. We help examine how applications store, process and expose data, and implement appropriate technical safeguards.",
     keywords: "Access control · Data minimisation · Secure architecture",
+  },
+  {
+    number: "04",
+    title: "Websites & web applications",
+    description:
+      "We create websites and web applications that do useful work: forms, client portals, data management and integrations with internal systems, with attention to reliability, security, search visibility and data protection.",
+    keywords: "Business websites · Forms · Client portals · Web applications",
   },
 ];
 
@@ -107,7 +116,7 @@ export default function SoftwareDevelopmentPage() {
         {/* HERO */}
         <section className="max-w-6xl mx-auto px-6 pt-14 pb-16 md:pt-20 md:pb-20">
           <p className="text-xs sm:text-sm uppercase tracking-widest font-semibold text-teal-400 mb-5">
-            Software development · Automation · Data protection
+            Custom software · Automation · Web applications
           </p>
 
           <h1 className="max-w-4xl text-4xl md:text-5xl font-bold tracking-tight leading-[1.12]">
@@ -115,14 +124,14 @@ export default function SoftwareDevelopmentPage() {
           </h1>
 
           <p className="mt-7 max-w-3xl text-lg md:text-xl text-zinc-300 leading-relaxed">
-            Disconnected tools, repetitive work, unreliable processes or
-            sensitive data that&apos;s difficult to protect?
+            Software that doesn&apos;t fit your processes? Repetitive work,
+            disconnected systems or a new application you need to build?
           </p>
 
           <p className="mt-4 max-w-3xl text-base text-zinc-400 leading-relaxed">
-            Reciproque builds and improves software to solve the problems behind
-            them. From practical internal tools to custom applications,
-            automation and better data protection.
+            Reciproque helps businesses solve these problems through focused
+            improvements, integrations and custom software. Sometimes a small
+            change is enough; sometimes you need an entirely new application.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
@@ -130,7 +139,7 @@ export default function SoftwareDevelopmentPage() {
               href="#contact"
               className="inline-flex items-center justify-center rounded-lg bg-teal-400 px-6 py-3 text-sm font-semibold text-zinc-950 hover:bg-teal-300 transition-colors"
             >
-              Tell us what isn&apos;t working
+              Discuss your project or problem
             </a>
 
             <a
@@ -140,6 +149,11 @@ export default function SoftwareDevelopmentPage() {
               Explore our work
             </a>
           </div>
+
+          <p className="mt-6 text-sm text-zinc-500">
+            Independent software development · Available for remote
+            collaboration
+          </p>
         </section>
 
         {/* PROBLEMS */}
@@ -174,7 +188,10 @@ export default function SoftwareDevelopmentPage() {
         </section>
 
         {/* SOLUTIONS */}
-        <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <section
+          id="services"
+          className="max-w-6xl mx-auto px-6 py-16 md:py-24 scroll-mt-8"
+        >
           <div className="mb-10">
             <p className="text-sm uppercase tracking-widest font-semibold text-teal-400 mb-3">
               What we do
@@ -185,12 +202,12 @@ export default function SoftwareDevelopmentPage() {
             </h2>
 
             <p className="mt-4 max-w-2xl text-zinc-400 leading-relaxed">
-              Sometimes that means building something new. Sometimes it means
-              improving what you already have.
+              From a targeted improvement to a complete application, the scope
+              follows the problem — not the other way around.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
             {solutions.map((solution) => (
               <article
                 key={solution.number}
@@ -295,12 +312,12 @@ export default function SoftwareDevelopmentPage() {
           </p>
 
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-            Real projects. Real technical challenges.
+            Software built for real-world challenges.
           </h2>
 
           <p className="mt-4 max-w-2xl text-zinc-400 leading-relaxed">
-            Two examples of software engineering, integration and automated data
-            processing.
+            Two examples of complex applications with practical outcomes —
+            supported by solid engineering behind the scenes.
           </p>
 
           <div className="mt-12 space-y-12">
@@ -314,7 +331,7 @@ export default function SoftwareDevelopmentPage() {
                 <h3 className="mt-3 text-2xl font-bold">Breeze</h3>
 
                 <p className="mt-5 text-zinc-300 leading-relaxed">
-                  A practical assessment platform owned by{" "}
+                  A practical skills-assessment platform owned by{" "}
                   <a
                     href="https://www.tomorrowneverknows.be/"
                     target="_blank"
@@ -323,31 +340,62 @@ export default function SoftwareDevelopmentPage() {
                   >
                     Tomorrow Never Knows
                   </a>
-                  , used by Volvo Benelux.
+                  , used for practical assessments of mechanics at Volvo Cars
+                  Belgium.
                 </p>
 
                 <p className="mt-3 text-sm text-zinc-400 leading-relaxed">
-                  Supports real-time collaboration between examiners, assessment
-                  scoring and report generation.
+                  Evaluators observe skills during practical exercises, record
+                  scores and observations, collaborate in real time and generate
+                  assessment reports.
                 </p>
+                <div className="mt-7 rounded-xl border border-teal-900/70 bg-teal-950/30 p-5">
+                  <p className="text-sm font-semibold text-zinc-100">
+                    Interested in seeing Breeze in action?
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                    Breeze isn&apos;t publicly accessible. Get in touch to
+                    discuss a demonstration or possible trial access for your
+                    organisation.
+                  </p>
+                  <a
+                    href="#contact"
+                    className="mt-3 inline-flex text-sm font-semibold text-teal-300 hover:text-teal-200"
+                  >
+                    Ask about Breeze →
+                  </a>
+                </div>
               </div>
 
               <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-7">
                 <p className="text-xs uppercase tracking-widest text-zinc-500 font-semibold mb-5">
-                  Engineering challenges
+                  What the platform enables
                 </p>
 
                 <ul className="space-y-4 text-sm text-zinc-300">
-                  <li>Real-time application behaviour</li>
-                  <li>Coordinating multiple users and workflows</li>
-                  <li>Data processing and report generation</li>
-                  <li>Integration of external services</li>
+                  <li>Observing skills in real practical assessments</li>
+                  <li>Coordinating evaluators and participants in real time</li>
+                  <li>Recording scores and observations</li>
+                  <li>Generating structured evaluation reports</li>
                 </ul>
 
                 <p className="mt-7 text-xs font-mono text-zinc-500 leading-relaxed">
                   TypeScript · Next.js · GraphQL · Ably · Sanity
                 </p>
               </div>
+              {(projectMedia.breeze.src ||
+                process.env.NODE_ENV !== "production") && (
+                <div className="md:col-span-2">
+                  <ProjectMedia
+                    kind={projectMedia.breeze.kind}
+                    src={projectMedia.breeze.src}
+                    poster={projectMedia.breeze.poster}
+                    alt="Breeze demonstration: practical assessment, evaluator and participant workflows"
+                    caption="Breeze: observing practical skills, coordinating assessments and preparing reports."
+                    language="en"
+                  />
+                </div>
+              )}
             </article>
 
             {/* ARTNOWDATABASE */}
@@ -360,14 +408,15 @@ export default function SoftwareDevelopmentPage() {
                 <h3 className="mt-3 text-2xl font-bold">ArtNowDatabase</h3>
 
                 <p className="mt-5 text-zinc-300 leading-relaxed">
-                  An independently developed platform collecting and organising
-                  information about art exhibitions across Europe.
+                  An independently developed platform that organises art
+                  exhibition information across Europe and displays it on an
+                  interactive map.
                 </p>
 
                 <p className="mt-3 text-sm text-zinc-400 leading-relaxed">
-                  Automated extraction, validation and processing of information
-                  from hundreds of different websites, using custom scraping
-                  infrastructure and local AI models.
+                  Behind the map, automated processes collect, extract, check
+                  and organise information from hundreds of websites, using
+                  purpose-built tools and local AI models to reduce manual work.
                 </p>
 
                 <a
@@ -382,26 +431,42 @@ export default function SoftwareDevelopmentPage() {
 
               <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-7">
                 <p className="text-xs uppercase tracking-widest text-zinc-500 font-semibold mb-5">
-                  Engineering challenges
+                  What the platform enables
                 </p>
 
                 <ul className="space-y-4 text-sm text-zinc-300">
-                  <li>Automated collection from diverse sources</li>
-                  <li>Data extraction and validation</li>
-                  <li>Asynchronous processing at scale</li>
-                  <li>Integration of local language models</li>
+                  <li>Collecting information from diverse sources</li>
+                  <li>Automatically extracting and checking data</li>
+                  <li>Organising exhibitions by location and date</li>
+                  <li>Making results accessible on an interactive map</li>
                 </ul>
 
                 <p className="mt-7 text-xs font-mono text-zinc-500 leading-relaxed">
                   Python · Crawl4AI · Local LLMs · MongoDB · Next.js
                 </p>
               </div>
+              {(projectMedia.artNow.src ||
+                process.env.NODE_ENV !== "production") && (
+                <div className="md:col-span-2">
+                  <ProjectMedia
+                    poster={projectMedia.artNow.poster}
+                    kind={projectMedia.artNow.kind}
+                    src={projectMedia.artNow.src}
+                    alt="ArtNowDatabase interactive European exhibition map"
+                    caption="ArtNowDatabase: the exhibition map produced from automatically collected and organised data."
+                    language="en"
+                  />
+                </div>
+              )}
             </article>
           </div>
         </section>
 
         {/* WORKING APPROACH */}
-        <section className="border-y border-zinc-800 bg-zinc-900/40">
+        <section
+          id="approach"
+          className="border-y border-zinc-800 bg-zinc-900/40 scroll-mt-8"
+        >
           <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
             <p className="text-sm uppercase tracking-widest font-semibold text-teal-400 mb-3">
               Our approach
@@ -461,10 +526,10 @@ export default function SoftwareDevelopmentPage() {
               </p>
 
               <Link
-                href="/reseaux-informatique"
+                href="#contact"
                 className="inline-flex text-sm font-semibold text-teal-300 hover:text-teal-200"
               >
-                Explore our IT infrastructure services →
+                Discuss a software project →
               </Link>
             </div>
           </div>
@@ -482,13 +547,14 @@ export default function SoftwareDevelopmentPage() {
               </p>
 
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                What problem can we help you solve?
+                What would you like to build or improve?
               </h2>
 
               <p className="mt-5 text-zinc-400 leading-relaxed">
-                Tell us about the challenge you&apos;re facing, your current
-                tools or the idea you want to explore. You don&apos;t need to
-                have a technical specification.
+                Whether it&apos;s one frustrating process, an existing system
+                that needs improving or a new application, tell us what you have
+                in mind. You don&apos;t need a technical specification to start
+                a conversation.
               </p>
 
               <ContactForm variant="software" language="en" />
@@ -497,7 +563,7 @@ export default function SoftwareDevelopmentPage() {
         </section>
       </main>
       {/* FOOTER */}
-      <SiteFooter theme="dark" language="en" />{" "}
+      <SiteFooter theme="dark" language="en" section="software" />{" "}
     </div>
   );
 }

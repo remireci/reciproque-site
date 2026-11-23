@@ -3,13 +3,16 @@ import Link from "next/link";
 type Props = {
   theme?: "light" | "dark";
   language?: "fr" | "en";
+  section?: "local" | "software";
 };
 
 export default function SiteFooter({
   theme = "light",
   language = "fr",
+  section = "local",
 }: Props) {
   const dark = theme === "dark";
+  const softwarePage = section === "software";
 
   const linkClass = dark ? "hover:text-teal-300" : "hover:text-teal-700";
 
@@ -30,8 +33,18 @@ export default function SiteFooter({
 
         <div className="flex flex-wrap gap-6">
           <Link href="/" className={linkClass}>
-            {language === "fr" ? "Accueil" : "Home"}
+            {language === "fr"
+              ? "Accueil"
+              : softwarePage
+                ? "Local IT (FR)"
+                : "Home"}
           </Link>
+
+          {softwarePage && (
+            <Link href="#projects" className={linkClass}>
+              {language === "fr" ? "Réalisations" : "Selected work"}
+            </Link>
+          )}
 
           <a href="mailto:info@reciproque.eu" className={linkClass}>
             Contact

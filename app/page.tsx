@@ -6,7 +6,7 @@ import SiteFooter from "./components/SiteFooter";
 export const metadata: Metadata = {
   title: "Reciproque | Assistance informatique, réseaux et logiciels à Bertrix",
   description:
-    "Dépannage informatique à Bertrix et environs, réseaux professionnels, logiciels sur mesure et automatisation pour particuliers, indépendants et PME.",
+    "Assistance informatique à Bertrix et environs, réseaux professionnels et développement de logiciels et automatisations sur mesure pour entreprises et organisations.",
   alternates: {
     canonical: "/",
   },
@@ -40,9 +40,9 @@ const services = [
     title: "Logiciels & automatisation",
     audience: "Entreprises & organisations",
     description:
-      "Vos logiciels ne répondent pas à tous vos besoins ? Développement d'applications sur mesure, connexion de vos outils et automatisation des tâches répétitives.",
-    details: "Applications · Intégrations · Automatisation · IA",
-    href: "/software-development",
+      "Des tâches répétitives, des logiciels qui communiquent mal ou un outil qui manque à votre activité ? Des améliorations ciblées jusqu’aux applications sur mesure.",
+    details: "Applications web · Intégrations · Automatisation · Données",
+    href: "/fr/software-development",
     link: "Découvrir le développement",
     navLabel: "Logiciels",
   },
@@ -62,14 +62,16 @@ export default function Home() {
           </p>
 
           <h1 className="max-w-4xl text-4xl md:text-5xl font-bold tracking-tight leading-[1.12]">
-            Un ordinateur en panne ?
-            <br className="hidden sm:block" /> Un réseau à améliorer ?
+            Assistance informatique de proximité.
+            <br className="hidden sm:block" /> Logiciels adaptés à votre
+            activité.
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-slate-600">
-            Reciproque vous accompagne dans tous vos besoins informatiques : du
-            dépannage à domicile aux réseaux professionnels, en passant par les
-            logiciels sur mesure et l&apos;automatisation.
+            Un dépannage ou un réseau à améliorer à Bertrix et environs ?
+            Reciproque intervient localement. Pour les entreprises et les
+            organisations, Reciproque développe aussi des outils, des
+            applications web et des automatisations, y compris à distance.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -77,20 +79,20 @@ export default function Home() {
               href="/assistance-informatique"
               className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-6 py-3 text-sm font-semibold text-white hover:bg-teal-800 transition-colors"
             >
-              Besoin d&apos;un dépannage informatique ?
+              Assistance informatique locale
             </Link>
 
             <Link
-              href="/reseaux-informatique"
+              href="/fr/software-development"
               className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 hover:border-teal-500 hover:text-teal-800 transition-colors"
             >
-              Solutions pour entreprises
+              Logiciels & automatisation
             </Link>
           </div>
 
           <p className="mt-6 text-sm text-slate-500">
-            Intervention sur place dans un rayon d&apos;environ 50 km autour de
-            Bertrix, ou assistance à distance.
+            Assistance sur place dans un rayon d&apos;environ 50 km autour de
+            Bertrix. Développement logiciel également disponible à distance.
           </p>
         </section>
 
@@ -148,6 +150,63 @@ export default function Home() {
           </div>
         </section>
 
+        {/* SOFTWARE FOR BUSINESSES */}
+        <section className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+          <p className="text-sm font-semibold uppercase tracking-widest text-teal-700 mb-3">
+            Pour les entreprises et les organisations
+          </p>
+
+          <h2 className="max-w-4xl text-2xl md:text-3xl font-bold tracking-tight">
+            Gagnez du temps avec des outils adaptés à votre façon de travailler.
+          </h2>
+
+          <p className="mt-5 max-w-3xl text-slate-600 leading-relaxed">
+            Des informations à recopier entre plusieurs logiciels, des documents
+            à préparer manuellement ou un processus difficile à suivre ? Une
+            automatisation ciblée, une connexion entre vos outils ou une
+            fonctionnalité supplémentaire peut déjà faire la différence.
+          </p>
+
+          <div className="mt-9 grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="font-semibold text-lg">Automatiser</h3>
+              <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                Réduire les tâches répétitives et faciliter le traitement des
+                données.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg">
+                Améliorer l&apos;existant
+              </h3>
+              <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                Connecter vos logiciels et ajouter les fonctions qui manquent.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg">
+                Créer des applications web
+              </h3>
+              <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                Développer des outils professionnels, formulaires ou espaces
+                clients.
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-9 max-w-3xl text-slate-700 leading-relaxed">
+            Pas besoin d&apos;un cahier des charges : nous pouvons commencer par
+            examiner ensemble le problème que vous souhaitez résoudre.
+          </p>
+
+          <Link
+            href="/fr/software-development#contact"
+            className="mt-5 inline-flex text-sm font-semibold text-teal-800 hover:text-teal-600 transition-colors"
+          >
+            Parlons de ce qui vous fait perdre du temps →
+          </Link>
+        </section>
+
         {/* ABOUT / EXPERTISE */}
         <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
@@ -182,10 +241,10 @@ export default function Home() {
               </p>
 
               <p>
-                Cette expérience permet aussi bien de résoudre un problème
-                informatique ponctuel que de concevoir des réseaux
-                professionnels, des applications sur mesure ou des systèmes
-                d&apos;automatisation.
+                Cette expérience permet de résoudre des problèmes informatiques
+                ponctuels, de concevoir des réseaux professionnels et de
+                réaliser des logiciels sur mesure pour des clients locaux ou à
+                distance.
               </p>
 
               <p>
@@ -195,7 +254,7 @@ export default function Home() {
               </p>
 
               <Link
-                href="/software-development"
+                href="/fr/software-development"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-teal-800 hover:text-teal-600 transition-colors"
               >
                 Découvrir nos réalisations
@@ -237,7 +296,7 @@ export default function Home() {
                 </Link>
 
                 <Link
-                  href="/software-development#contact"
+                  href="/fr/software-development#contact"
                   className="text-sm font-semibold text-teal-800 hover:text-teal-600 transition-colors"
                 >
                   Logiciels & automatisation →

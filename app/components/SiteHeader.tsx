@@ -10,7 +10,7 @@ type Props = {
   language?: Language;
 };
 
-const navigation = [
+const localNavigation = [
   {
     id: "assistance",
     href: "/assistance-informatique",
@@ -25,10 +25,17 @@ const navigation = [
   },
   {
     id: "software",
-    href: "/software-development",
+    href: "/fr/software-development",
     fr: "Logiciels",
     en: "Software",
   },
+] as const;
+
+const softwareNavigation = [
+  { id: "home", href: "/", fr: "Accueil", en: "Local IT (FR)" },
+  { id: "services", href: "#services", fr: "Services", en: "Services" },
+  { id: "projects", href: "#projects", fr: "Réalisations", en: "Work" },
+  { id: "approach", href: "#approach", fr: "Méthode", en: "Approach" },
 ] as const;
 
 export default function SiteHeader({
@@ -37,6 +44,12 @@ export default function SiteHeader({
   language = "fr",
 }: Props) {
   const dark = theme === "dark";
+  const softwarePage = current === "software";
+
+  // Clicking the brand always returns to the website homepage.
+  // The international software page explicitly labels that destination as French.
+  const brandHref = "/";
+  const contactHref = current === "home" ? "/#contact" : "#contact";
 
   return (
     <header
@@ -53,7 +66,7 @@ export default function SiteHeader({
         className="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4"
       >
         <Link
-          href="/"
+          href={brandHref}
           className={`text-xl font-bold tracking-tight ${
             dark ? "text-zinc-100" : "text-teal-800"
           }`}
@@ -63,31 +76,44 @@ export default function SiteHeader({
         </Link>
 
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-          {navigation.map((item) => {
-            const active = current === item.id;
-
-            return (
-              <Link
-                key={item.id}
-                href={item.href}
-                aria-current={active ? "page" : undefined}
-                className={
-                  active
-                    ? dark
-                      ? "font-semibold text-teal-300"
-                      : "font-semibold text-teal-800"
-                    : dark
+          {softwarePage
+            ? softwareNavigation.map((item) => (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  className={
+                    dark
                       ? "text-zinc-400 hover:text-teal-300 transition-colors"
                       : "text-slate-600 hover:text-teal-700 transition-colors"
-                }
-              >
-                {item[language]}
-              </Link>
-            );
-          })}
+                  }
+                >
+                  {item[language]}
+                </Link>
+              ))
+            : localNavigation.map((item) => {
+                const active = current === item.id;
+                return (
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={
+                      active
+                        ? dark
+                          ? "font-semibold text-teal-300"
+                          : "font-semibold text-teal-800"
+                        : dark
+                          ? "text-zinc-400 hover:text-teal-300 transition-colors"
+                          : "text-slate-600 hover:text-teal-700 transition-colors"
+                    }
+                  >
+                    {item[language]}
+                  </Link>
+                );
+              })}
 
           <a
-            href={current === "home" ? "/#contact" : "#contact"}
+            href={contactHref}
             className={
               dark
                 ? "font-medium text-teal-300 hover:text-teal-200"
