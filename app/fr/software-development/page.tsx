@@ -396,7 +396,7 @@ export default function SoftwareDevelopmentPage() {
                   <ProjectMedia
                     kind={projectMedia.breeze.kind}
                     src={projectMedia.breeze.src}
-                    poster={projectMedia.breeze.poster}
+                    // poster={projectMedia.breeze.poster}
                     alt="Démonstration de Breeze : évaluations pratiques, parcours évaluateur et participant"
                     caption="Breeze : observer les compétences pratiques, coordonner les évaluations et produire des rapports."
                     language="fr"
@@ -459,7 +459,7 @@ export default function SoftwareDevelopmentPage() {
                 process.env.NODE_ENV !== "production") && (
                 <div className="md:col-span-2">
                   <ProjectMedia
-                    poster={projectMedia.artNow.poster}
+                    // poster={projectMedia.artNow.poster}
                     kind={projectMedia.artNow.kind}
                     src={projectMedia.artNow.src}
                     alt="Carte interactive des expositions européennes d’ArtNowDatabase"

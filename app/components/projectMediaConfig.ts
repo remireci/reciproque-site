@@ -18,10 +18,13 @@ type MediaSettings = {
   poster?: string;
 };
 
-export const projectMedia: {
-  breeze: MediaSettings;
-  artNow: MediaSettings;
-} = {
-  breeze: { kind: "video" },
-  artNow: { kind: "image" },
-};
+export const projectMedia = {
+  breeze: {
+    kind: "video",
+    src: "/projects/reciproque_promo_breeze.mp4",
+  },
+  artNow: {
+    kind: "image",
+    // src: "/projects/artnow-map.webp",
+  },
+} as const;
