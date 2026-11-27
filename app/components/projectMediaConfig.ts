@@ -12,19 +12,22 @@
  * If src is absent, only local development shows a placement guide;
  * the production site displays no empty media box.
  */
-type MediaSettings = {
+export type MediaSettings = {
   kind: "video" | "image";
   src?: string;
   poster?: string;
 };
 
-export const projectMedia = {
+export const projectMedia: {
+  breeze: MediaSettings;
+  artNow: MediaSettings;
+} = {
   breeze: {
     kind: "video",
     src: "/projects/reciproque_promo_breeze.mp4",
   },
   artNow: {
     kind: "image",
-    // src: "/projects/artnow-map.webp",
+    src: "/projects/artnow-map.webp",
   },
-} as const;
+};
